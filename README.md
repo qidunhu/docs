@@ -9,12 +9,12 @@
 #### 1.2 操作系统基本设置
  
 ##### 1.2.1 设置主机名
-  建议根据主机实际角色来对主机命名，如：controller、node1等
-  如：``` echo "controller" > /etc/hostname```
+建议根据主机实际角色来对主机命名，如：controller、node1等
+如：``` echo "controller" > /etc/hostname```
 ##### 1.2.2 关闭SElinux
     
-  ```setenforce 0 ``` 
-  ``` sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config ```
+```setenforce 0 ``` 
+``` sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config ```
       
 ##### 1.2.3 关闭firewall
 ``` systemctl disable firewalld.service ```
@@ -26,8 +26,8 @@
 
 ``` yum repolist csphere ```
            
-注：如果在安装时，所在服务器无法连接互联网，需要提前将cSphere repo目录下载至本地，然后上传至服务器,如： 
-``` wget -r -np -nH -R "index.html*" http://52.68.20.57/pubrepo/centos/7/x86_64/ ```
+>注：如果在安装时，所在服务器无法连接互联网，需要提前将cSphere repo目录下载至本地，然后上传至服务器,如： 
+>``` wget -r -np -nH -R "index.html*" http://52.68.20.57/pubrepo/centos/7/x86_64/ ```
 
 在服务器上创建一个本地的repo配置, 使用下载下来的cSphere repo目录，如：假设repo上传到服务器目录的路径为: /root/pubrepo/，那么服务器本地repo文件应该这么创建:
 
