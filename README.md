@@ -55,6 +55,9 @@
 
 ![4.6内核](http://git.oschina.net/uploads/images/2017/0322/171435_523fbbcd_934281.png "4.6内核")
 ###1.4 Docker数据分区
-#### 1.4.1 创建Docker分区
+##### 1.4.1 创建Docker分区
 Docker需要一个 **单独的数据分区** 来存放Docker数据，并使用参数```-n ftype=1```格式化为xfs文件系统, 否则在4.6内核上无法正常创建容器。
-该分区还要使用参数```prjquota```挂载， 否则无法正常使用容器的磁盘空间配额功能。
+该分区还要使用参数```prjquota```挂载， 否则无法正常使用容器的磁盘空间配额功能。假设分区设备名为/dev/sdb1, 操作如下:
+`mkfs.xfs -n ftype=1 /dev/sdb1`
+
+![xfs](http://git.oschina.net/uploads/images/2017/0322/174445_297e796d_934281.png "xfs")
