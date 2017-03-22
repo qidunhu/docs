@@ -2,12 +2,12 @@
 ******************************************************************
 
 ### 1 准备工作
-#### 1.1 下载和安装[CentOS 7 64bit](http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso) 
+ #### 1.1 下载和安装[CentOS 7 64bit](http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso) 
 
 下载__[CentOS 64bit Minimal镜像](http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso)__  安装时选用默认的 __英文__ 语言进行安装
-* #### 1.2 操作系统基本设置
+#### 1.2 操作系统基本设置
  
-* ##### 1.2.1 设置主机名
+ * ##### 1.2.1 设置主机名
   建议根据主机实际角色来对主机命名，如：controller、node1等
   如：``` echo "controller" > /etc/hostname```
 * ##### 1.2.2 关闭SElinux
