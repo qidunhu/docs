@@ -58,6 +58,23 @@
 ##### 1.4.1 创建Docker分区
 Docker需要一个 **单独的数据分区** 来存放Docker数据，并使用参数```-n ftype=1```格式化为xfs文件系统, 否则在4.6内核上无法正常创建容器。
 该分区还要使用参数```prjquota```挂载， 否则无法正常使用容器的磁盘空间配额功能。假设分区设备名为/dev/sdb1, 操作如下:
-`mkfs.xfs -n ftype=1 /dev/sdb1`
 
+`mkfs.xfs -n ftype=1 /dev/sdb1`
+ _下图为操作示例_ 
 ![xfs](http://git.oschina.net/uploads/images/2017/0322/174445_297e796d_934281.png "xfs")
+#####1.4.2 挂载文件系统
+创建一个挂载点，用来挂载新创建的xfs文件系统，操作如下：
+
+`mkdir docker_data`
+
+使用`prjquota`参数和UUID来挂载该文件系统，首先使用`blkid`命令获取到对应的分区UUID，然后再挂载该分区，如下：
+
+![xfs挂载](http://git.oschina.net/uploads/images/2017/0322/175931_3552d9f5_934281.png "挂载")
+
+>注：使用UUID方式挂载，主要是防止设备名变化导致文件系统无法挂载，尤其是在云环境下部署时。
+
+再将该挂载点写入/etc/fstba文件当中，实现开机启动，如下：
+
+`echo "UUID=6b1f3c6b-8eaf-4b05-8efc-37d61b5c4a97 /docker-data xfs defaults,prjquota 0 0" >> /etc/fstab`
+`ln -sv /docker_data/docker /var/lib/docker`
+
