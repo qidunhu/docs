@@ -29,7 +29,7 @@
 注：如果在安装时，所在服务器无法连接互联网，需要提前将cSphere repo目录下载至本地，然后上传至服务器,如： 
 ``` wget -r -np -nH -R "index.html*" http://52.68.20.57/pubrepo/centos/7/x86_64/ ```
 
-在服务器上创建一个本地的repo配置, 使用下载下来的cSphere repo目录，如：假设repo目录的路径为: /root/pubrepo/，那么本地repo文件应该这么创建:
+在服务器上创建一个本地的repo配置, 使用下载下来的cSphere repo目录，如：假设repo上传到服务器目录的路径为: /root/pubrepo/，那么服务器本地repo文件应该这么创建:
 
 ```bash 
     cat<<-EOS>/etc/yum.repos.d/csphere.repo 
@@ -54,6 +54,6 @@
 `uname -r`
 
 ![4.6内核](http://git.oschina.net/uploads/images/2017/0322/171435_523fbbcd_934281.png "4.6内核")
-
-  
-               
+###1.4 Docker数据分区
+#### 1.4.1 创建Docker分区
+Docker需要一个 **单独的数据分区** 来存放Docker数据，并使用参数```-n ftype=1```格式化为xfs文件系统, 否则在4.6内核上无法正常创建容器
