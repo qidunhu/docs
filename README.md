@@ -41,17 +41,19 @@
               EOS
 ```
 ##### 1.3.2 安装依赖包
-``` yum -y --disablerepo='*' --enablerepo=csphere install bridge-utils net-tools psmisc subversion git fuse ntp rng-tools bash-completion ```
+```bash
+    yum -y --disablerepo='*' --enablerepo=csphere install bridge-utils net-tools psmisc subversion git fuse ntp rng-tools\         
+    bash-completion```
 ##### 1.3.3 安装4.6版本内核
-``` yum -y --disablerepo='*' --enablerepo=csphere install kernel-ml-4.6.0 iproute ```
+`yum -y --disablerepo='*' --enablerepo=csphere install kernel-ml-4.6.0 iproute`
          
 ##### 1.3.4 启用4.6版本内核
 
-`grub2-set-default 0 `
+`grub2-set-default 0`
 
 `reboot`
 
-``` uname -r ```
+`uname -r`
 
 ![4.6内核](http://git.oschina.net/uploads/images/2017/0322/171435_523fbbcd_934281.png "4.6内核")
 
