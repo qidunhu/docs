@@ -47,11 +47,12 @@
          
 ##### 1.3.4 启用4.6版本内核
 
-``grub2-set-default 0 ```
+`grub2-set-default 0 `
 
-``` reboot ```
+`reboot`
 
 ``` uname -r ```
+
 ![4.6内核](http://git.oschina.net/uploads/images/2017/0322/171435_523fbbcd_934281.png "4.6内核")
 
   
