@@ -75,6 +75,6 @@ Docker需要一个 **单独的数据分区** 来存放Docker数据，并使用�
 
 再将该挂载点写入/etc/fstba文件当中，实现开机启动，如下：
 
-```echo "UUID=6b1f3c6b-8eaf-4b05-8efc-37d61b5c4a97 /docker-data xfs defaults,prjquota 0 0" >> /etc/fstab```
+```echo"UUID=6b1f3c6b-8eaf-4b05-8efc-37d61b5c4a97 /docker-data xfs defaults,prjquota 0 0">> /etc/fstab```
 `ln -sv /docker_data/docker /var/lib/docker`
 
