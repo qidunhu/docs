@@ -30,9 +30,9 @@
 >``` wget -r -np -nH -R "index.html*" http://52.68.20.57/pubrepo/centos/7/x86_64/ ```
 >
 >在服务器上创建一个本地的repo配置, 使用下载下来的cSphere repo目录，如：假设repo上传到服务器目录的路径为: /root/pubrepo/，那么服务器本地repo文件应该这么创建:
->
->```bash 
-   cat<<-EOS>/etc/yum.repos.d/csphere.repo 
+
+```bash 
+    cat<<-EOS>/etc/yum.repos.d/csphere.repo 
               [csphere]
               name=csphere local repo
               baseurl=file:///root/pubrepo/centos/7/x86_64/
