@@ -75,13 +75,13 @@ _如图_
 
 使用`-o prjquota`参数和UUID来挂载该文件系统，首先使用`blkid`命令获取到对应的分区的UUID，然后再挂载该分区，如图：
 
-![挂载](http://git.oschina.net/uploads/images/2017/0323/154828_1d1574d2_934281.jpeg "挂载")
+![挂载](http://git.oschina.net/uploads/images/2017/0323/155220_9cc09f9c_934281.jpeg "挂载")
 
 >使用UUID方式挂载，主要是防止设备名变化导致文件系统无法挂载，尤其是在云环境下部署时。
 
 再将该挂载点写入/etc/fstba文件当中，实现开机启动，如图：
 
-`echo UUID=6b1f3c6b-8eaf-4b05-8efc-37d61b5c4a97 /docker_data xfs defaults,prjquota 0 0 >> /etc/fstab`
+`echo UUID=3de7c0ff-bdde-4a95-8727-b52246c328b9 /docker_data xfs defaults,prjquota 0 0 >> /etc/fstab`
 
 `ln -sv /docker_data/docker /var/lib/docker`
 
