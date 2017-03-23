@@ -46,8 +46,8 @@
 ```
 ##### 1.3.2 安装依赖包
 ```bash
-yum -y --disablerepo='*' --enablerepo=csphere install bridge-utils net-tools psmisc subversion git fuse
- ntp rng-tools bash-completion
+yum -y --disablerepo='*' --enablerepo=csphere install bridge-utils net-tools psmisc subversion git\
+fuse ntp rng-tools bash-completion
 ```
 
 ##### 1.3.3 安装4.6版本内核
