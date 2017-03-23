@@ -45,7 +45,9 @@
               EOS
 ```
 ##### 1.3.2 安装依赖包
-`yum -y --disablerepo='*' --enablerepo=csphere install bridge-utils net-tools psmisc subversion git fuse ntp rng-tools bash-completion`
+```bash
+yum -y --disablerepo='*' --enablerepo=csphere install bridge-utils net-tools psmisc subversion git fuse ntp rng-tools bash-completion```
+
 ##### 1.3.3 安装4.6版本内核
 `yum -y --disablerepo='*' --enablerepo=csphere install kernel-ml-4.6.0 iproute`
          
@@ -65,6 +67,7 @@ Docker需要一个**单独的数据分区**来存放Docker数据，需要新增�
 `mkfs.xfs -n ftype=1 /dev/sdb1`
 
 _如图_ 
+
 ![xfs](http://git.oschina.net/uploads/images/2017/0322/174445_297e796d_934281.png "xfs")
 #####1.4.2 挂载文件系统
 创建一个挂载点，用来挂载新创建的xfs文件系统，操作如下：
@@ -75,11 +78,12 @@ _如图_
 
 ![xfs挂载](http://git.oschina.net/uploads/images/2017/0322/175931_3552d9f5_934281.png "挂载")
 
->注：使用UUID方式挂载，主要是防止设备名变化导致文件系统无法挂载，尤其是在云环境下部署时。
+>使用UUID方式挂载，主要是防止设备名变化导致文件系统无法挂载，尤其是在云环境下部署时。
 
 再将该挂载点写入/etc/fstba文件当中，实现开机启动，如图：
 
 `echo UUID=6b1f3c6b-8eaf-4b05-8efc-37d61b5c4a97 /docker_data xfs defaults,prjquota 0 0 >> /etc/fstab`
+
 `ln -sv /docker_data/docker /var/lib/docker`
 
 ### 2 安装希云cSphere Controller
@@ -94,21 +98,21 @@ _如图_
 `Role=controller ClusterSize=3 Port=80 MongoRepl=NO csphere_init`
 
 > _参数说明_ ：
-*  _Port: 管理节点控制台HTTP服务端口_ 
-*  _ClusterSize： Etcd集群节点数量, 此处设置的值就是Agent最小的安装数目,如ClusterSize=3,则最少需要安装3台Agent来完成Etcd集群初始化_ 
+*_Port: 管理节点控制台HTTP服务端口_ 
+*_ClusterSize： Etcd集群节点数量, 此处设置的值就是Agent最小的安装数目,如ClusterSize=3,则最少需要安装3台Agent来完成Etcd集群初始化_ 
 
 #### 2.2 启动controller
 
 `cspherectl  start`
 
 ### 3 安装希云cSphere Agent
-> _说明: 安装controller的时，设置的`ClusterSize`值是多少，则首次部署Agent时就至少需要安装
+> _安装controller时，设置的 `ClusterSize` 值是多少，则首次部署Agent时就至少需要安装
 `ClusterSize`台Agent_ 
 
 #### 3.1 设置网络
 ##### 3.1.1 新建br网桥
 
-> _注：如果容器使用bridge网络模式，则此步骤为必须，ipvlan网络可跳过该步骤,如下：_ 
+> _如果容器使用bridge网络模式，则此步骤为必须，ipvlan网络可跳过该步骤,如下：_ 
 
 
 `cd /etc/sysconfig/network-scripts`
@@ -149,6 +153,7 @@ ifconfig br0           # 确认IP地址在br0上
 brctl show br0         # 物理网卡被连接到br0
 ```
  _如图_ 
+
 ![查看网桥设置是否成功](http://git.oschina.net/uploads/images/2017/0323/120825_d3a9746c_934281.jpeg "网桥")
 
 
@@ -178,7 +183,7 @@ Role=agent ControllerAddr=192.168.2.1:80 InstCode=6906 NetMode=ipvlan InetDev=et
 
 `cspherectl  start`
 
-> _说明：如果 `NetMode=ipvlan` 的话，**docker**会启动失败, 继续执行如下命令_
+> _如果 `NetMode=ipvlan` 的话，**docker**会启动失败, 继续执行如下命令_
 
 `net-plugin ip-range  --ip-start=172.17.0.1/24 --ip-end=172.17.0.254/24`
 
