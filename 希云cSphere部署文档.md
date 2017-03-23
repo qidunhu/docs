@@ -75,7 +75,7 @@ _如图_
 
 使用`-o prjquota`参数和UUID来挂载该文件系统，首先使用`blkid`命令获取到对应的分区的UUID，然后再挂载该分区，如图：
 
-![xfs挂载](http://git.oschina.net/uploads/images/2017/0322/175931_3552d9f5_934281.png "挂载")
+![挂载](http://git.oschina.net/uploads/images/2017/0323/154828_1d1574d2_934281.jpeg "挂载")
 
 >使用UUID方式挂载，主要是防止设备名变化导致文件系统无法挂载，尤其是在云环境下部署时。
 
