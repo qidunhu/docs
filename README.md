@@ -46,7 +46,8 @@
 ```
 ##### 1.3.2 安装依赖包
 ```bash
-yum -y --disablerepo='*' --enablerepo=csphere install bridge-utils net-tools psmisc subversion git fuse ntp rng-tools bash-completion
+yum -y --disablerepo='*' --enablerepo=csphere install bridge-utils net-tools psmisc subversion git fuse
+ ntp rng-tools bash-completion
 ```
 
 ##### 1.3.3 安装4.6版本内核
@@ -71,9 +72,9 @@ _如图_
 
 ![xfs](http://git.oschina.net/uploads/images/2017/0322/174445_297e796d_934281.png "xfs")
 #####1.4.2 挂载文件系统
-创建一个挂载点，用来挂载新创建的xfs文件系统，操作如下：
+创建挂载点，用来挂载新创建的xfs文件系统，操作如下：
 
-`mkdir docker_data`
+`mkdir /docker_data`
 
 使用`-o prjquota`参数和UUID来挂载该文件系统，首先使用`blkid`命令获取到对应的分区的UUID，然后再挂载该分区，如图：
 
