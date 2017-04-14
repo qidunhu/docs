@@ -301,9 +301,9 @@ backend backend_servers
 ```
 ### redis
 Redis sharding cluster配置，模板整体配置如下：
-![redis sharding模板][1]
+![redis sharding模板](https://github.com/qidunhu/docs/blob/master/images/redis2.jpg)
 从节点模板
-![从节点][2]
+![从节点](https://github.com/qidunhu/docs/blob/master/images/redis3.jpg)
 具体配置
 
 该模板中定义了
@@ -322,13 +322,13 @@ NODES="{{range $i,$rc := $rs.Containers}} {{$rc.IPAddr}}:6379{{end}}"
   >(Percona XtraDB Cluster)
   
   PXC配置，模板整体如下
-  ![pxc][3]
+  ![pxc](https://github.com/qidunhu/docs/blob/master/images/1.png)
 该模板定义了两个服务，一个pma服务和pxc和服务，下图为对pma服务的定义
-![pam ][4]
+![pam ](https://github.com/qidunhu/docs/blob/master/images/2.png)
 
 里面定义了pma登录的账号和密码两个变量，由于在cSphere平台里定义的变量是可以交叉引用的，所以在pxc服务里可以直接去引用这两个变量
 
-![pxc][5]
+![pxc](https://github.com/qidunhu/docs/blob/master/images/3.png)
 引用其他服务定义的变量方式为```{{.service.服务名.变量名}}``` 	 // 此处的服务名是指模板中定义的服务名称，如图中的pam服务。
 
 在配置文件中引用变量和使用Go template语法灵活配置整个集群
