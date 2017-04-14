@@ -331,6 +331,9 @@ NODES="{{range $i,$rc := $rs.Containers}} {{$rc.IPAddr}}:6379{{end}}"
 
 在配置文件中引用变量和使用Go template语法灵活配置整个集群
 ![6][6]
+
+
+
 图中的
 ```wsrep_cluster_address = gcomm://{{range $i,$c := .Service.Containers}}{{if ne $i 0}},{{end}}{{$c.Domain}}{{end}}``` 
 利用了Go template语法获取其他节点的IP，灵活配置集群。
