@@ -347,4 +347,4 @@ wsrep_cluster_address = gcomm://{{range $i,$c := .Service.Containers}}{{if ne $i
   [3]: https://github.com/qidunhu/docs/blob/master/images/1.png "1.png"
   [4]: https://github.com/qidunhu/docs/blob/master/images/2.png "2.png"
   [5]: https://github.com/qidunhu/docs/blob/master/images/3.png "3.png"
-  [6]: ./images/5.png "5.png"
+  [6]: https://github.com/qidunhu/docs/blob/master/images/5.png "5.png"
