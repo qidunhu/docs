@@ -337,12 +337,14 @@ NODES="{{range $i,$rc := $rs.Containers}} {{$rc.IPAddr}}:6379{{end}}"
 
 
 图中的
-```wsrep_cluster_address = gcomm://{{range $i,$c := .Service.Containers}}{{if ne $i 0}},{{end}}{{$c.Domain}}{{end}}``` 
+```
+wsrep_cluster_address = gcomm://{{range $i,$c := .Service.Containers}}{{if ne $i 0}},{{end}}{{$c.Domain}}{{end}}
+``` 
 利用了Go template语法获取其他节点的IP，灵活配置集群。
 
-  [1]: ./images/redis2.jpg "redis2.jpg"
-  [2]: ./images/redis3.jpg "redis3.jpg"
-  [3]: ./images/1.png "1.png"
-  [4]: ./images/2.png "2.png"
-  [5]: ./images/3.png "3.png"
+  [1]: https://github.com/qidunhu/docs/blob/master/images/redis2.jpg "redis2.jpg"
+  [2]: https://github.com/qidunhu/docs/blob/master/images/redis3.jpg "redis3.jpg"
+  [3]: https://github.com/qidunhu/docs/blob/master/images/1.png "1.png"
+  [4]: https://github.com/qidunhu/docs/blob/master/images/2.png "2.png"
+  [5]: https://github.com/qidunhu/docs/blob/master/images/3.png "3.png"
   [6]: ./images/5.png "5.png"
