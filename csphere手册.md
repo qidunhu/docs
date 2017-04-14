@@ -306,7 +306,7 @@ Redis sharding cluster配置，模板整体配置如下：
 
 ![从节点](https://github.com/qidunhu/docs/blob/master/images/redis3.jpg)
 
-具体配置
+
 
 该模板中定义了
 ```REOLICAS_NUM```
