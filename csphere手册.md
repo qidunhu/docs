@@ -303,7 +303,9 @@ backend backend_servers
 Redis sharding cluster配置，模板整体配置如下：
 ![redis sharding模板](https://github.com/qidunhu/docs/blob/master/images/redis2.jpg)
 从节点模板
+
 ![从节点](https://github.com/qidunhu/docs/blob/master/images/redis3.jpg)
+
 具体配置
 
 该模板中定义了
@@ -322,6 +324,7 @@ NODES="{{range $i,$rc := $rs.Containers}} {{$rc.IPAddr}}:6379{{end}}"
   >(Percona XtraDB Cluster)
   
   PXC配置，模板整体如下
+  
   ![pxc](https://github.com/qidunhu/docs/blob/master/images/1.png)
 该模板定义了两个服务，一个pma服务和pxc和服务，下图为对pma服务的定义
 ![pam ](https://github.com/qidunhu/docs/blob/master/images/2.png)
