@@ -332,7 +332,7 @@ NODES="{{range $i,$rc := $rs.Containers}} {{$rc.IPAddr}}:6379{{end}}"
 引用其他服务定义的变量方式为```{{.service.服务名.变量名}}``` 	 // 此处的服务名是指模板中定义的服务名称，如图中的pam服务。
 
 在配置文件中引用变量和使用Go template语法灵活配置整个集群
-![6][6]
+![6](https://github.com/qidunhu/docs/blob/master/images/5.png)
 
 
 
