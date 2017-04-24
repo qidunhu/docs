@@ -347,6 +347,12 @@ wsrep_cluster_address = gcomm://{{range $i,$c := .Service.Containers}}{{if ne $i
 ``` 
 利用了Go template语法获取其他节点的IP，灵活配置集群。
 
+可以看到配置文件下发至容器内，配置引擎自动将变量解析为相应的节点IP。当配置文件更新时，无需重新构建镜像，即可快速将配置文件下发至相同服务内的容器中。
+
+![7](https://github.com/qidunhu/docs/blob/master/images/pxc1.png)
+
+
+
   [1]: https://github.com/qidunhu/docs/blob/master/images/redis2.jpg "redis2.jpg"
   [2]: https://github.com/qidunhu/docs/blob/master/images/redis3.jpg "redis3.jpg"
   [3]: https://github.com/qidunhu/docs/blob/master/images/1.png "1.png"
